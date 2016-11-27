@@ -4,4 +4,5 @@ export class IEvent {
     endTime: Date;
     organizer: string;
     imageUrl: string;
+    description: string;
 }
