@@ -1,0 +1,12 @@
+<md-card *ngFor='let event of events'>
+  <md-card-header>
+      <img md-card-avatar [src]='event.imageUrl'>
+      <md-card-title>Header title</md-card-title>
+      <md-card-subtitle>Header subtitle</md-card-subtitle>
+   </md-card-header>
+   <img md-card-image [src]='event.imageUrl'>
+   <md-card-content>
+      <p>Here is some more content</p>
+   </md-card-content>
+</md-card>
+

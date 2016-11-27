@@ -6,19 +6,23 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-
+import { EventsComponent } from './events/events.component';
+import { EventDataService } from './shared/services/event-data.service';
+import { AppToggleService } from './shared/services/app-toggle.service';
+ 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
   ],
-  providers: [],
+  providers: [ EventDataService, AppToggleService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
