@@ -3,7 +3,8 @@ import { EventDataService } from '../shared/services/event-data.service';
 import { IEvent } from '../shared/models/event.model';
 import { EVENTS } from '../shared/services/events.mock';
 import { AppToggleService} from '../shared/services/app-toggle.service';
-import {MdDialog, MdDialogRef} from '@angular/material'
+import { MdDialog, MdDialogRef} from '@angular/material';
+import { DialogComponent } from '../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-events',
@@ -13,16 +14,18 @@ import {MdDialog, MdDialogRef} from '@angular/material'
 export class EventsComponent implements OnInit {
 
   events: IEvent[];
-  dialogRef: MdDialogRef<EventDialog>
+  dialogRef: MdDialogRef<DialogComponent>
 
   constructor(private _eventDataService: EventDataService, 
     private _appToggleService: AppToggleService,
     private _dialogService: MdDialog) { }
 
-  showEvent(event, domEvent) {
-    this.dialogRef = this._dialogService.open(EventDialog, {
-      disableClose: false
+  showEvent(event) {
+    this.dialogRef = this._dialogService.open(DialogComponent, {
+      disableClose: false,
     });
+
+    this.dialogRef.componentInstance.event = event;
 
     this.dialogRef.afterClosed().subscribe (result => {
       console.log('result: ' + result);
@@ -38,15 +41,4 @@ export class EventsComponent implements OnInit {
         .subscribe(events => this.events = events);
     }
   }
-}
-
-@Component({
-  selector: 'event-dialog',
-  template: `
-  <button type="button" (click)="dialogRef.close('yes')">Yes</button>
-  <button type="button" (click)="dialogRef.close('no')">No</button>
-  `
-})
-export class EventDialog {
-  constructor(public dialogRef: MdDialogRef<EventDialog>) { }
 }
