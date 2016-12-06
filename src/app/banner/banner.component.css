@@ -1,0 +1,12 @@
+.jumbotron {
+    background: url('http://res.cloudinary.com/dog8swgml/image/upload/v1480289288/ubc-main-mall-night_cx8vvl.jpg') center / cover;
+}
+
+.jumbotron-container {
+    /*position: absolute;*/
+}
+
+.jumbotron > * {
+    padding-left: 30px;
+    color: white;
+}
