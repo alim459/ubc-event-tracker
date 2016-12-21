@@ -6,9 +6,9 @@ import { MdDialogRef } from '@angular/material';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent implements OnInit {
+export class EventDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MdDialogRef<DialogComponent>) { }
+  constructor(public dialogRef: MdDialogRef<EventDialogComponent>) { }
 
   event: Event;
 
