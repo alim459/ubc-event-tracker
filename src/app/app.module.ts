@@ -9,12 +9,19 @@ import { HomeComponent } from './home/home.component';
 import { EventsComponent } from './events/events.component';
 import { EventDataService } from './shared/services/event-data.service';
 import { AppToggleService } from './shared/services/app-toggle.service';
+import { BannerComponent } from './banner/banner.component';
+import { EventDialogComponent } from './shared/components/dialog/event-dialog.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EventsComponent
+    EventsComponent,
+    BannerComponent,
+    EventDialogComponent
+  ],
+  entryComponents: [
+    EventDialogComponent
   ],
   imports: [
     BrowserModule,

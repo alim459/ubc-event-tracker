@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EventDataService {
     
-    eventsEndpointUrl = 'http://www.mocky.io/v2/583ab93210000038057640ad'
+    eventsEndpointUrl = 'http://event-tracking-server.herokuapp.com/event'
     result: string;
 
     constructor(private _http: Http) { };
@@ -14,9 +14,9 @@ export class EventDataService {
     getEventsFromServer(): Observable<IEvent[]> {
         console.log('attempting to retrieve events from server');
         let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Access-Control-Allow-Origin', '*');
-        var resp =  this._http.get(this.eventsEndpointUrl, { headers: headers})
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        var resp =  this._http.get(this.eventsEndpointUrl, {headers: headers})
             .map(response => response.json());
         console.log(JSON.stringify(resp));
             return resp;

@@ -1,8 +1,11 @@
+import { IVenue } from './venue.model';
+
 export class IEvent {
-    name: string;
-    startTime: Date;
-    endTime: Date;
+    title: string;
+    startDate: Date;
+    endDate: Date;
     organizer: string;
     imageUrl: string;
     description: string;
+    venue : IVenue;
 }
